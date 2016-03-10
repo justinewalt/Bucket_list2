@@ -1,0 +1,9 @@
+<%= form_for [@bucket, @activity] do |f| %>
+
+	<%= f.label :name %>
+	<br />
+	<%= f.text_field :name, autofocus: true, placeholder: 'Name your Activity' %>
+	<br />
+	<%= f.submit class: 'btn waves-effect waves-light' %>
+
+<% end %>

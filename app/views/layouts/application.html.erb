@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BucketList</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="#42a5f5 blue lighten-1">
+ <nav>
+    <div class="nav-wrapper z-depth-3">
+      <a href="#" class="brand-logo">Buket</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      	<li><%= link_to 'LOG IN', user_session_path %></li>
+      <% end %>
+        <li><%= link_to 'NEW BUKET', new_bucket_path %></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container full-height blue lighten-3 main z-depth-2">
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 l6">
+      </div>
+      <div class="col 14 offset-12 s12">
+        <ul>
+          <li><%= link_to "Buket's Page", buckets_path, class: 'footer-link-color'%></li>
+          <li><%= link_to 'New Buket', new_bucket_path, class: 'footer-link-color'%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2016 Karson & Justin
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'footer-link-color logout-align-right'%>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
+	
