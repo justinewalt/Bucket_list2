@@ -51,7 +51,12 @@
   <div class="footer-copyright">
     <div class="container">
     © 2016 Karson & Justin
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'footer-link-color logout-align-right'%>
+    <% if user_signed_in? %>
+        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'footer-link-color logout-align-right'%>
+      <% else %>
+        <%= link_to 'LOG IN', user_session_path, class: 'footer-link-color logout-align-right'%>
+      <% end %>
+    <%#= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'footer-link-color logout-align-right'%>
     </div>
   </div>
 </footer>
