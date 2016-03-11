@@ -1,14 +1,14 @@
 <div class="col m10 offset-m1">
-	<h1>All Buckets</h1>
+	<h1>All BUKET's</h1>
 	<hr />
 	<% if @buckets.any? %>
+		
+	<%= button_to 'New Buket', new_bucket_path, class: 'btn waves-effect waves-light', method: :get %>
 
 	<div class="row">
-			<%= will_paginate @buckets %>
 
 		<% @buckets.each do |bucket| %>
 
-		<%= button_to 'New Buket', new_bucket_path, class: 'btn waves-effect waves-light', method: :get %>
 
 			<div class="col s12 m6 l3">
 				<div class="card blue darken-1 small">
@@ -23,7 +23,8 @@
 			</div>
 		<% end %>
 			<% else %>
-				<h3>There are no buckets. Please create a bucket.</h3>
+				<h3>To get started, please create a BUKET.</h3>
 			<% end %>
 	</div>
+			<%= will_paginate @buckets %>
 </div>

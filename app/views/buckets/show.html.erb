@@ -3,9 +3,9 @@
 	<h1><%= @bucket.category %></h1>
 	<%= button_to 'New Activity', new_bucket_activity_path(@bucket), class: 'btn waves-effect waves-light', method: :get %>
 
+	<% if @activities.any? %>
 
 	<div class="row">
-				<%= will_paginate @activities %>
 
 		<% @activities.each do |activity| %>
 			<div class="col s12 m6 l3">
@@ -20,5 +20,12 @@
 				</div>
 			</div>	 	
 		<% end %>
+		
+	<% else %>
+		<h5>There are no activities right now, please add some activities to your BUKET <%= @bucket.category %>.</h5>
+	<% end %>
 	</div>
+
+	<%= will_paginate @activities %>
+
 </div>

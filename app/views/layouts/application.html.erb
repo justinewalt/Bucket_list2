@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BucketList</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>BUKETList</title>
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 <body class="#42a5f5 blue lighten-1">
+
+ <!-- This is the Nav Bar -->
  <nav>
     <div class="nav-wrapper z-depth-3">
-      <a href="#" class="brand-logo">Buket</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <div class="brand-logo">
+        <%= link_to 'BUKET', buckets_path %>
+      </div>
+
+      <ul id="nav-mobile" class="right">
       <% if user_signed_in? %>
         <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
       <% else %>
@@ -21,11 +26,15 @@
       </ul>
     </div>
   </nav>
+
+  <!-- This is the ruby 'yield' section holding the body of all our content -->
   <div class="container full-height blue lighten-3 main z-depth-2">
     <div class="row">
       <%= yield %>
     </div>
   </div>
+
+<!-- This is the start of the footer -->
 <footer class="page-footer">
   <div class="container">
     <div class="row">
