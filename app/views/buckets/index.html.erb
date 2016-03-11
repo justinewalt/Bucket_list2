@@ -7,6 +7,9 @@
 			<%= will_paginate @buckets %>
 
 		<% @buckets.each do |bucket| %>
+
+		<%= button_to 'New Buket', new_bucket_path, class: 'btn waves-effect waves-light', method: :get %>
+
 			<div class="col s12 m6 l3">
 				<div class="card blue darken-1 small">
 					<div class="card-content white-text">
