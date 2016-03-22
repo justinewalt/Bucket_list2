@@ -1,6 +1,6 @@
 <%= form_for @bucket do |f| %>
 	<%= f.label :category %>
-	<%= f.text_field :category, placeholder: 'Name your Buket' %><br />
+	<%= f.text_field :category, placeholder: 'Name your Buket', autofocus: true %><br />
 	<br />
 	<%= f.submit class: 'btn waves-effect waves-light' %>
 

@@ -2,8 +2,8 @@ class BucketsController < ApplicationController
 	before_action :bucket, except: [:new, :create, :index]
 
   def index
-  flash[:sucess] = "You have been signed in"
- 	@buckets = Bucket.all
+  flash[:success] = "You have been signed in"
+ 	@buckets = current_user.buckets
   @buckets = Bucket.paginate(page: params[:page], per_page: 4) 
 
   end
